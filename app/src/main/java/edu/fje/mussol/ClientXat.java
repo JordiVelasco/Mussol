@@ -18,12 +18,13 @@ import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class ClientXat extends AppCompatActivity {
 
     private Button boto;
-    private TextView missatges;
+    private TextView missatges, missatges2;
     private EditText entrada;
     private PrintWriter sortida;
     private Socket socol = null;
@@ -37,16 +38,18 @@ public class ClientXat extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         boto = findViewById(R.id.boto);
         missatges = findViewById(R.id.missatges);
+        missatges2 = findViewById(R.id.missatges);
         entrada = findViewById(R.id.entrada);
         byte[] addr = new byte[4];
         addr[0] = (byte) 192;
         addr[1] = (byte) 168;
         addr[2] = (byte) 1;
-        addr[3] = (byte) 36;
+        addr[3] = (byte) 37;
 
         try {
             InetAddress adreca = InetAddress.getByAddress(addr);
             socol = new Socket();
+            System.out.println(socol);
             try {
                 socol.connect(new InetSocketAddress(adreca.getHostAddress(),
                         8189), 2000);
@@ -78,7 +81,6 @@ public class ClientXat extends AppCompatActivity {
     }
 
     class LecturaFil extends Thread {
-        private Socket socol = null;
         public LecturaFil(Socket s) {
             socol = s;
         }
@@ -89,7 +91,7 @@ public class ClientXat extends AppCompatActivity {
                 Scanner entrada = new Scanner(inStream);
                 while (true) {
                     String resposta = entrada.nextLine();
-                    missatges.setText(missatges.getText() + "\nsdasd" + resposta);
+                    missatges.setText(resposta);
                     Log.v("DAM2","\nSERVER> " + resposta);
                 }
             }

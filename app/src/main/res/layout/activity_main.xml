@@ -31,13 +31,23 @@
 
     <TextView
         android:id="@+id/missatges"
-        android:layout_width="308dp"
-        android:layout_height="492dp"
+        android:layout_width="299dp"
+        android:layout_height="193dp"
         android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
         android:layout_marginTop="88dp"
         android:inputType="textMultiLine"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/missatges2"
+        android:layout_width="302dp"
+        android:layout_height="392dp"
+        android:layout_marginBottom="40dp"
+        android:inputType="textMultiLine"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.136"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
