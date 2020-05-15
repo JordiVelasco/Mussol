@@ -10,8 +10,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.InetAddress;
@@ -28,6 +30,7 @@ public class ClientXat extends AppCompatActivity {
     private EditText entrada;
     private PrintWriter sortida;
     private Socket socol = null;
+    private BufferedReader input;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,11 +90,15 @@ public class ClientXat extends AppCompatActivity {
 
         public void run() {
             try {
-                InputStream inStream = socol.getInputStream();
-                Scanner entrada = new Scanner(inStream);
+                input = new BufferedReader(new InputStreamReader(socol.getInputStream()));
                 while (true) {
-                    String resposta = entrada.nextLine();
-                    missatges.setText(resposta);
+                    final String resposta = input.readLine();
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            missatges.append(resposta + "\n");
+                        }
+                    });
                     Log.v("DAM2","\nSERVER> " + resposta);
                 }
             }
