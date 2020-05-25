@@ -31,8 +31,9 @@ public class XifratgeAsimetric {
         System.out.println("Cifrar con clave pública el Texto:");
         System.out.write(missatge);
         byte[] missatgeCifrado = cifrador.doFinal(missatge);
-        System.out.println("Texto CIFRADO");
+        System.out.println("\n Texto CIFRADO");
         System.out.write(missatgeCifrado);
+
         return missatgeCifrado;
     }
 
@@ -43,6 +44,7 @@ public class XifratgeAsimetric {
         System.out.println("Texto DESCIFRADO");
         System.out.write(mensaje);
         String missatge = mensaje.toString();
+        System.out.println(missatge + "sdfdsfdsfdsf");
         return missatge;
     }
 }

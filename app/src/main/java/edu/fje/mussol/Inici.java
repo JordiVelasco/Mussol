@@ -1,5 +1,6 @@
 package edu.fje.mussol;
 
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 
 public class Inici extends AppCompatActivity implements OnItemSelectedListener {
 
@@ -32,6 +34,12 @@ public class Inici extends AppCompatActivity implements OnItemSelectedListener {
         intent.putExtra("tipo",tipo);
         startActivity(intent);
     }
+
+    public void Geo(View v){
+        Intent intent = new Intent(this, Geolocalitzacio.class);
+        startActivity(intent);
+    }
+
 
     public void onItemSelected(AdapterView<?> parent, View view,
                                int pos, long id) {
