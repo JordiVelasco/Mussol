@@ -8,30 +8,34 @@
 
     <EditText
         android:id="@+id/entrada"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="17dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="missatge"
-        app:layout_constraintBaseline_toBaselineOf="@+id/boto"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_width="299dp"
+        android:layout_height="42dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_toStartOf="@id/boto"
+        android:hint="Message..."
+        android:padding="8dp"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/boto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="82dp"
+        android:layout_height="41dp"
         android:layout_marginStart="7dp"
-        android:layout_marginLeft="7dp"
-        android:layout_marginTop="27dp"
+        android:layout_marginTop="16dp"
         android:text="envia"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/entrada"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/missatges"
-        android:layout_width="310dp"
-        android:layout_height="565dp"
+        android:layout_width="382dp"
+        android:layout_height="630dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="88dp"
         android:inputType="textMultiLine"

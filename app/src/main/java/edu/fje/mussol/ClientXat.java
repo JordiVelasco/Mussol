@@ -8,11 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.google.android.gms.dynamic.IFragmentWrapper;
-
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.PrintWriter;
@@ -20,14 +17,12 @@ import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
-import java.util.Scanner;
 
 public class ClientXat extends AppCompatActivity {
-
+    private String tipo;
     private Button boto;
     private TextView missatges;
     private EditText entrada;
-    private PrintWriter sortida;
     private Socket socol = null;
     private BufferedReader input;
 
@@ -37,6 +32,7 @@ public class ClientXat extends AppCompatActivity {
         StrictMode.setThreadPolicy(policy);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        tipo = getIntent().getStringExtra("tipo");
         boto = findViewById(R.id.boto);
         missatges = findViewById(R.id.missatges);
         entrada = findViewById(R.id.entrada);
@@ -44,7 +40,7 @@ public class ClientXat extends AppCompatActivity {
         addr[0] = (byte) 192;
         addr[1] = (byte) 168;
         addr[2] = (byte) 1;
-        addr[3] = (byte) 40;
+        addr[3] = (byte) 35;
 
         try {
             InetAddress adreca = InetAddress.getByAddress(addr);
@@ -99,6 +95,8 @@ public class ClientXat extends AppCompatActivity {
                                 try { socol.close(); fet[0] = true;}
                                 catch (IOException e) { e.printStackTrace(); }
                             } else {
+                                if (tipo.equals("Sala Individual"))
+                                    missatges.setText("Estas a la sala individual");
                                 missatges.append(resposta + "\n");
                             }
                         }

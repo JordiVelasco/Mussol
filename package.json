@@ -1,0 +1,19 @@
+{
+  "name": "mussol",
+  "version": "1.0.0",
+  "description": "android chat app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JordiVelasco/Mussol.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JordiVelasco/Mussol/issues"
+  },
+  "homepage": "https://github.com/JordiVelasco/Mussol#readme"
+}
